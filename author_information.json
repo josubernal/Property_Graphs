@@ -1,0 +1,702 @@
+[
+  {
+    "authorId": "31757873",
+    "url": "https://www.semanticscholar.org/author/31757873",
+    "name": "A. Evren",
+    "paperCount": 20,
+    "hIndex": 3
+  },
+  {
+    "authorId": "2110686790",
+    "url": "https://www.semanticscholar.org/author/2110686790",
+    "name": "J.W. Moore",
+    "paperCount": 3,
+    "hIndex": 2
+  },
+  {
+    "authorId": "2241180351",
+    "url": "https://www.semanticscholar.org/author/2241180351",
+    "name": "Jeffrey J. Bowden",
+    "paperCount": 2,
+    "hIndex": 2
+  },
+  {
+    "authorId": "2705171",
+    "url": "https://www.semanticscholar.org/author/2705171",
+    "name": "L. Morlock",
+    "paperCount": 97,
+    "hIndex": 35
+  },
+  {
+    "authorId": "50823818",
+    "url": "https://www.semanticscholar.org/author/50823818",
+    "name": "B. Bernanke",
+    "paperCount": 470,
+    "hIndex": 71
+  },
+  {
+    "authorId": "40986757",
+    "url": "https://www.semanticscholar.org/author/40986757",
+    "name": "Nor Hanim Mohamad Hanapi",
+    "paperCount": 2,
+    "hIndex": 2
+  },
+  {
+    "authorId": "46315945",
+    "url": "https://www.semanticscholar.org/author/46315945",
+    "name": "Lucile Vincent",
+    "paperCount": 15,
+    "hIndex": 9
+  },
+  {
+    "authorId": "14422491",
+    "url": "https://www.semanticscholar.org/author/14422491",
+    "name": "C. Sooksriwongse",
+    "paperCount": 3,
+    "hIndex": 2
+  },
+  {
+    "authorId": "35368195",
+    "url": "https://www.semanticscholar.org/author/35368195",
+    "name": "C. Zoia",
+    "paperCount": 103,
+    "hIndex": 16
+  },
+  {
+    "authorId": "2060787563",
+    "url": "https://www.semanticscholar.org/author/2060787563",
+    "name": "L. Hall",
+    "paperCount": 11,
+    "hIndex": 4
+  },
+  {
+    "authorId": "70658072",
+    "url": "https://www.semanticscholar.org/author/70658072",
+    "name": "P. Jae-sung",
+    "paperCount": 9,
+    "hIndex": 2
+  },
+  {
+    "authorId": "2097964925",
+    "url": "https://www.semanticscholar.org/author/2097964925",
+    "name": "P. Di Donato",
+    "paperCount": 4,
+    "hIndex": 4
+  },
+  {
+    "authorId": "6511578",
+    "url": "https://www.semanticscholar.org/author/6511578",
+    "name": "J. Spero",
+    "paperCount": 75,
+    "hIndex": 24
+  },
+  {
+    "authorId": "143886830",
+    "url": "https://www.semanticscholar.org/author/143886830",
+    "name": "S. Mudd",
+    "paperCount": 203,
+    "hIndex": 28
+  },
+  {
+    "authorId": "5298121",
+    "url": "https://www.semanticscholar.org/author/5298121",
+    "name": "M. Comunale",
+    "paperCount": 67,
+    "hIndex": 20
+  },
+  {
+    "authorId": "1757152",
+    "url": "https://www.semanticscholar.org/author/1757152",
+    "name": "F. Dragan",
+    "paperCount": 139,
+    "hIndex": 33
+  },
+  {
+    "authorId": "17025625",
+    "url": "https://www.semanticscholar.org/author/17025625",
+    "name": "P. Hackenthal",
+    "paperCount": 6,
+    "hIndex": 1
+  },
+  {
+    "authorId": "3580869",
+    "url": "https://www.semanticscholar.org/author/3580869",
+    "name": "E. Boland",
+    "paperCount": 70,
+    "hIndex": 19
+  },
+  {
+    "authorId": "6492843",
+    "url": "https://www.semanticscholar.org/author/6492843",
+    "name": "X. Nassif",
+    "paperCount": 231,
+    "hIndex": 68
+  },
+  {
+    "authorId": "9966767",
+    "url": "https://www.semanticscholar.org/author/9966767",
+    "name": "A. Riesenhuber",
+    "paperCount": 8,
+    "hIndex": 7
+  },
+  {
+    "authorId": "2108687040",
+    "url": "https://www.semanticscholar.org/author/2108687040",
+    "name": "Jin-hong Feng",
+    "paperCount": 2,
+    "hIndex": 2
+  },
+  {
+    "authorId": "65913927",
+    "url": "https://www.semanticscholar.org/author/65913927",
+    "name": "N. Chumachenko",
+    "paperCount": 13,
+    "hIndex": 2
+  },
+  {
+    "authorId": "2554739",
+    "url": "https://www.semanticscholar.org/author/2554739",
+    "name": "F. R. Fabresse",
+    "paperCount": 11,
+    "hIndex": 7
+  },
+  {
+    "authorId": "145086086",
+    "url": "https://www.semanticscholar.org/author/145086086",
+    "name": "Gin\u00e9s Moreno",
+    "paperCount": 92,
+    "hIndex": 17
+  },
+  {
+    "authorId": "5397923",
+    "url": "https://www.semanticscholar.org/author/5397923",
+    "name": "V. S. Gasilin",
+    "paperCount": 88,
+    "hIndex": 2
+  },
+  {
+    "authorId": "1387456563",
+    "url": "https://www.semanticscholar.org/author/1387456563",
+    "name": "B. Zikmund\u2010Fisher",
+    "paperCount": 287,
+    "hIndex": 55
+  },
+  {
+    "authorId": "5791063",
+    "url": "https://www.semanticscholar.org/author/5791063",
+    "name": "Soundarya Srirangan",
+    "paperCount": 3,
+    "hIndex": 2
+  },
+  {
+    "authorId": "143639141",
+    "url": "https://www.semanticscholar.org/author/143639141",
+    "name": "A. Fung",
+    "paperCount": 114,
+    "hIndex": 27
+  },
+  {
+    "authorId": "1397414088",
+    "url": "https://www.semanticscholar.org/author/1397414088",
+    "name": "T. Akenine-M\u00f6ller",
+    "paperCount": 157,
+    "hIndex": 37
+  },
+  {
+    "authorId": "2146312253",
+    "url": "https://www.semanticscholar.org/author/2146312253",
+    "name": "Feng Li",
+    "paperCount": 8,
+    "hIndex": 3
+  },
+  {
+    "authorId": "41197279",
+    "url": "https://www.semanticscholar.org/author/41197279",
+    "name": "H. A. Weifers",
+    "paperCount": 1,
+    "hIndex": 0
+  },
+  {
+    "authorId": "2090156120",
+    "url": "https://www.semanticscholar.org/author/2090156120",
+    "name": "Stephani K Zakutansky",
+    "paperCount": 2,
+    "hIndex": 1
+  },
+  {
+    "authorId": "2056254106",
+    "url": "https://www.semanticscholar.org/author/2056254106",
+    "name": "Marie",
+    "paperCount": 12,
+    "hIndex": 2
+  },
+  {
+    "authorId": "8597716",
+    "url": "https://www.semanticscholar.org/author/8597716",
+    "name": "G. Rutherfoord",
+    "paperCount": 30,
+    "hIndex": 10
+  },
+  {
+    "authorId": "78808870",
+    "url": "https://www.semanticscholar.org/author/78808870",
+    "name": "Ruda MIa",
+    "paperCount": 67,
+    "hIndex": 3
+  },
+  {
+    "authorId": "2149133776",
+    "url": "https://www.semanticscholar.org/author/2149133776",
+    "name": "Zhipeng Zhou",
+    "paperCount": 5,
+    "hIndex": 4
+  },
+  {
+    "authorId": "2105747784",
+    "url": "https://www.semanticscholar.org/author/2105747784",
+    "name": "Q. Zhuang",
+    "paperCount": 3,
+    "hIndex": 1
+  },
+  {
+    "authorId": "31126540",
+    "url": "https://www.semanticscholar.org/author/31126540",
+    "name": "R. E. Hartman",
+    "paperCount": 15,
+    "hIndex": 8
+  },
+  {
+    "authorId": "2144531004",
+    "url": "https://www.semanticscholar.org/author/2144531004",
+    "name": "Xiaobo Zhang",
+    "paperCount": 36,
+    "hIndex": 11
+  },
+  {
+    "authorId": "18795036",
+    "url": "https://www.semanticscholar.org/author/18795036",
+    "name": "T. Proctor",
+    "paperCount": 127,
+    "hIndex": 19
+  },
+  {
+    "authorId": "40389329",
+    "url": "https://www.semanticscholar.org/author/40389329",
+    "name": "W. Michel",
+    "paperCount": 41,
+    "hIndex": 22
+  },
+  {
+    "authorId": "143712036",
+    "url": "https://www.semanticscholar.org/author/143712036",
+    "name": "Asad Abbas",
+    "paperCount": 50,
+    "hIndex": 12
+  },
+  {
+    "authorId": "66267745",
+    "url": "https://www.semanticscholar.org/author/66267745",
+    "name": "Vinu Choudhary",
+    "paperCount": 16,
+    "hIndex": 2
+  },
+  {
+    "authorId": "2116513495",
+    "url": "https://www.semanticscholar.org/author/2116513495",
+    "name": "Xin Guo",
+    "paperCount": 14,
+    "hIndex": 8
+  },
+  {
+    "authorId": "143725878",
+    "url": "https://www.semanticscholar.org/author/143725878",
+    "name": "S. Granier",
+    "paperCount": 78,
+    "hIndex": 25
+  },
+  {
+    "authorId": "145108627",
+    "url": "https://www.semanticscholar.org/author/145108627",
+    "name": "V. Novak",
+    "paperCount": 10,
+    "hIndex": 5
+  },
+  {
+    "authorId": "82521626",
+    "url": "https://www.semanticscholar.org/author/82521626",
+    "name": "E. Achilles",
+    "paperCount": 7,
+    "hIndex": 2
+  },
+  {
+    "authorId": "5685980",
+    "url": "https://www.semanticscholar.org/author/5685980",
+    "name": "K. Shibata",
+    "paperCount": 106,
+    "hIndex": 31
+  },
+  {
+    "authorId": "2216045",
+    "url": "https://www.semanticscholar.org/author/2216045",
+    "name": "B. Bacci",
+    "paperCount": 83,
+    "hIndex": 15
+  },
+  {
+    "authorId": "6062525",
+    "url": "https://www.semanticscholar.org/author/6062525",
+    "name": "D. Kalu",
+    "paperCount": 84,
+    "hIndex": 30
+  },
+  {
+    "authorId": "12702759",
+    "url": "https://www.semanticscholar.org/author/12702759",
+    "name": "J. Borgmeyer",
+    "paperCount": 10,
+    "hIndex": 10
+  },
+  {
+    "authorId": "3152809",
+    "url": "https://www.semanticscholar.org/author/3152809",
+    "name": "Yilong Yang",
+    "paperCount": 26,
+    "hIndex": 18
+  },
+  {
+    "authorId": "2913351",
+    "url": "https://www.semanticscholar.org/author/2913351",
+    "name": "C. Lehrenfeld",
+    "paperCount": 67,
+    "hIndex": 24
+  },
+  {
+    "authorId": "81605006",
+    "url": "https://www.semanticscholar.org/author/81605006",
+    "name": "Usman W. Chohan",
+    "paperCount": 197,
+    "hIndex": 28
+  },
+  {
+    "authorId": "14042857",
+    "url": "https://www.semanticscholar.org/author/14042857",
+    "name": "G. Fedorak",
+    "paperCount": 35,
+    "hIndex": 9
+  },
+  {
+    "authorId": "11701145",
+    "url": "https://www.semanticscholar.org/author/11701145",
+    "name": "D. Heefner",
+    "paperCount": 17,
+    "hIndex": 9
+  },
+  {
+    "authorId": "1851441",
+    "url": "https://www.semanticscholar.org/author/1851441",
+    "name": "C. Nelson",
+    "paperCount": 113,
+    "hIndex": 4
+  },
+  {
+    "authorId": "1878592",
+    "url": "https://www.semanticscholar.org/author/1878592",
+    "name": "Qinliang Jiang",
+    "paperCount": 9,
+    "hIndex": 5
+  },
+  {
+    "authorId": "5165967",
+    "url": "https://www.semanticscholar.org/author/5165967",
+    "name": "Guillermo Horga",
+    "paperCount": 97,
+    "hIndex": 34
+  },
+  {
+    "authorId": "2744557",
+    "url": "https://www.semanticscholar.org/author/2744557",
+    "name": "W. Beaver",
+    "paperCount": 70,
+    "hIndex": 33
+  },
+  {
+    "authorId": "137766544",
+    "url": "https://www.semanticscholar.org/author/137766544",
+    "name": "I. Mohseni",
+    "paperCount": 21,
+    "hIndex": 8
+  },
+  {
+    "authorId": "2067776432",
+    "url": "https://www.semanticscholar.org/author/2067776432",
+    "name": "M. Hashimoto",
+    "paperCount": 10,
+    "hIndex": 1
+  },
+  {
+    "authorId": "34896449",
+    "url": "https://www.semanticscholar.org/author/34896449",
+    "name": "R. Casey",
+    "paperCount": 37,
+    "hIndex": 16
+  },
+  {
+    "authorId": "107861503",
+    "url": "https://www.semanticscholar.org/author/107861503",
+    "name": "Zhu Zey",
+    "paperCount": 1,
+    "hIndex": 0
+  },
+  {
+    "authorId": "2074521995",
+    "url": "https://www.semanticscholar.org/author/2074521995",
+    "name": "T. Eilam",
+    "paperCount": 39,
+    "hIndex": 19
+  },
+  {
+    "authorId": "2351128",
+    "url": "https://www.semanticscholar.org/author/2351128",
+    "name": "A. Guseva",
+    "paperCount": 20,
+    "hIndex": 3
+  },
+  {
+    "authorId": "48985989",
+    "url": "https://www.semanticscholar.org/author/48985989",
+    "name": "T. Yaqub",
+    "paperCount": 10,
+    "hIndex": 5
+  },
+  {
+    "authorId": "4630708",
+    "url": "https://www.semanticscholar.org/author/4630708",
+    "name": "M. Benwell",
+    "paperCount": 46,
+    "hIndex": 17
+  },
+  {
+    "authorId": "1389257127",
+    "url": "https://www.semanticscholar.org/author/1389257127",
+    "name": "E. Garc\u00eda-Esquinas",
+    "paperCount": 163,
+    "hIndex": 34
+  },
+  {
+    "authorId": "2110123582",
+    "url": "https://www.semanticscholar.org/author/2110123582",
+    "name": "Zhen Li",
+    "paperCount": 9,
+    "hIndex": 2
+  },
+  {
+    "authorId": "121785426",
+    "url": "https://www.semanticscholar.org/author/121785426",
+    "name": "Kuen-Suan Chen",
+    "paperCount": 150,
+    "hIndex": 31
+  },
+  {
+    "authorId": "2006182579",
+    "url": "https://www.semanticscholar.org/author/2006182579",
+    "name": "Rashmi Athiya",
+    "paperCount": 2,
+    "hIndex": 1
+  },
+  {
+    "authorId": "2016076589",
+    "url": "https://www.semanticscholar.org/author/2016076589",
+    "name": "H. Can",
+    "paperCount": 5,
+    "hIndex": 1
+  },
+  {
+    "authorId": "2238205354",
+    "url": "https://www.semanticscholar.org/author/2238205354",
+    "name": "Jiayan Teng",
+    "paperCount": 5,
+    "hIndex": 3
+  },
+  {
+    "authorId": "2073389082",
+    "url": "https://www.semanticscholar.org/author/2073389082",
+    "name": "E. Koscielniak",
+    "paperCount": 25,
+    "hIndex": 10
+  },
+  {
+    "authorId": "1682058",
+    "url": "https://www.semanticscholar.org/author/1682058",
+    "name": "H. Zhang",
+    "paperCount": 2381,
+    "hIndex": 100
+  },
+  {
+    "authorId": "90760821",
+    "url": "https://www.semanticscholar.org/author/90760821",
+    "name": "K. Okabayashi",
+    "paperCount": 7,
+    "hIndex": 5
+  },
+  {
+    "authorId": "1808760",
+    "url": "https://www.semanticscholar.org/author/1808760",
+    "name": "S. Omohundro",
+    "paperCount": 77,
+    "hIndex": 26
+  },
+  {
+    "authorId": "29405728",
+    "url": "https://www.semanticscholar.org/author/29405728",
+    "name": "Cl\u00e9a Girard",
+    "paperCount": 8,
+    "hIndex": 5
+  },
+  {
+    "authorId": "31664371",
+    "url": "https://www.semanticscholar.org/author/31664371",
+    "name": "Henning Ids\u00f8e",
+    "paperCount": 11,
+    "hIndex": 3
+  },
+  {
+    "authorId": "144033385",
+    "url": "https://www.semanticscholar.org/author/144033385",
+    "name": "D. W. Wong",
+    "paperCount": 17,
+    "hIndex": 7
+  },
+  {
+    "authorId": "30758578",
+    "url": "https://www.semanticscholar.org/author/30758578",
+    "name": "J. Farlik",
+    "paperCount": 29,
+    "hIndex": 8
+  },
+  {
+    "authorId": "51372361",
+    "url": "https://www.semanticscholar.org/author/51372361",
+    "name": "Hu Yun-hong",
+    "paperCount": 24,
+    "hIndex": 0
+  },
+  {
+    "authorId": "2286738",
+    "url": "https://www.semanticscholar.org/author/2286738",
+    "name": "D. Kornfeld",
+    "paperCount": 83,
+    "hIndex": 28
+  },
+  {
+    "authorId": "2167918",
+    "url": "https://www.semanticscholar.org/author/2167918",
+    "name": "C. Roy",
+    "paperCount": 203,
+    "hIndex": 39
+  },
+  {
+    "authorId": "16884348",
+    "url": "https://www.semanticscholar.org/author/16884348",
+    "name": "D. Weischedel",
+    "paperCount": 1,
+    "hIndex": 0
+  },
+  {
+    "authorId": "4198647",
+    "url": "https://www.semanticscholar.org/author/4198647",
+    "name": "K. Hara",
+    "paperCount": 40,
+    "hIndex": 14
+  },
+  {
+    "authorId": "91683948",
+    "url": "https://www.semanticscholar.org/author/91683948",
+    "name": "A. Delahoy",
+    "paperCount": 166,
+    "hIndex": 21
+  },
+  {
+    "authorId": "11483392",
+    "url": "https://www.semanticscholar.org/author/11483392",
+    "name": "G. Sadeghi",
+    "paperCount": 23,
+    "hIndex": 7
+  },
+  {
+    "authorId": "70012789",
+    "url": "https://www.semanticscholar.org/author/70012789",
+    "name": "Kitty O. Locker",
+    "paperCount": 41,
+    "hIndex": 11
+  },
+  {
+    "authorId": "1853847",
+    "url": "https://www.semanticscholar.org/author/1853847",
+    "name": "Yizhen Lu",
+    "paperCount": 4,
+    "hIndex": 3
+  },
+  {
+    "authorId": "52023459",
+    "url": "https://www.semanticscholar.org/author/52023459",
+    "name": "S. Schwarcz",
+    "paperCount": 232,
+    "hIndex": 21
+  },
+  {
+    "authorId": "2047818669",
+    "url": "https://www.semanticscholar.org/author/2047818669",
+    "name": "J. Macharia",
+    "paperCount": 2,
+    "hIndex": 1
+  },
+  {
+    "authorId": "3888085",
+    "url": "https://www.semanticscholar.org/author/3888085",
+    "name": "J. Heindel",
+    "paperCount": 201,
+    "hIndex": 63
+  },
+  {
+    "authorId": "1885473",
+    "url": "https://www.semanticscholar.org/author/1885473",
+    "name": "A. Godkin",
+    "paperCount": 153,
+    "hIndex": 44
+  },
+  {
+    "authorId": "145977802",
+    "url": "https://www.semanticscholar.org/author/145977802",
+    "name": "P. Gil",
+    "paperCount": 77,
+    "hIndex": 16
+  },
+  {
+    "authorId": "5668962",
+    "url": "https://www.semanticscholar.org/author/5668962",
+    "name": "Chenzhen Zhang",
+    "paperCount": 7,
+    "hIndex": 7
+  },
+  {
+    "authorId": "52214378",
+    "url": "https://www.semanticscholar.org/author/52214378",
+    "name": "Harshvardhan Takawale",
+    "paperCount": 7,
+    "hIndex": 2
+  },
+  {
+    "authorId": "152234705",
+    "url": "https://www.semanticscholar.org/author/152234705",
+    "name": "S. Durdyev",
+    "paperCount": 91,
+    "hIndex": 29
+  },
+  {
+    "authorId": "1748503",
+    "url": "https://www.semanticscholar.org/author/1748503",
+    "name": "S. Czaja",
+    "paperCount": 433,
+    "hIndex": 67
+  }
+]
