@@ -1,0 +1,2 @@
+#!/bin/bash
+/Users/alfio/Library/Application\ Support/Neo4j\ Desktop/Application/relate-data/dbmss/dbms-ddcdeee1-b2f7-4362-ad00-16957d94f1de/bin/neo4j-admin database import full --overwrite-destination --verbose --delimiter "|" --array-delimiter "^" --nodes=paper="paper_header.csv,paper.csv" --nodes=author="author_header.csv,author.csv" --nodes=keywords="keywords_header.csv,keywords.csv" --relationships=authored_by="paper_author.csv" --relationships=cite="paper_paper.csv" --relationships=has_keyword="paper_keywords.csv"

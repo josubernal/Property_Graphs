@@ -1,3 +1,5 @@
 .env
 rawdata
-csv
+csv/*
+!csv/*header*.csv
+!csv/neo4j_import.sh

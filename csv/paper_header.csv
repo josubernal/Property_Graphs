@@ -1,0 +1,1 @@
+paperId:ID|corpusId:string|title:string|referenceAuthorId:string|abstract:string|url:string|year:int|publicationType:string|publicationDate:date
