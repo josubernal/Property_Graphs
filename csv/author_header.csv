@@ -1,1 +1,1 @@
-authorId:ID|authorName:string
+authorId:ID|url:string|authorName:string|paperCount:int|hIndex:int
