@@ -17,7 +17,7 @@ headers = {"x-api-key": api_key}
 
 # %%
 def is_id_valid(paper):
-    return paper is not None and paper['paperId'] is not None
+    return paper is not None and not isinstance(paper, str) and paper['paperId'] is not None
 
 def is_valid_paper(paper):
     return paper['authors'] and paper['abstract'] is not None and paper['title'] is not None and paper['year'] is not None and paper['publicationTypes'] is not None and paper["publicationVenue"] is not None
@@ -52,7 +52,8 @@ csv_files = {
     "paper": ["paperId","corpusId", "title", "referenceAuthorId", "abstract", "url", "publicationType", "publicationDate","publicationId","yearId"],
     "paper_paper": ["citingPaperId", "citedPaperId"],
     "author": ["authorId", "authorName"],
-    "paper_author": ["paperId", "authorId"],
+    "paper_author": ["authorId", "paperId"],
+    "paper_relevant_author": ["paperId", "relevantAuthorId"],
     "paper_reviewer": ["paperId", "reviewAuthorId"],
     "keywords": ["keyword"],
     "paper_keywords": ["paperId", "keyword"],
@@ -100,7 +101,7 @@ def choose_n_papers_to_process(to_be_processed_papers, n):
 
 # %%
 BATCH_SIZE = 200
-MAX_RECURSION = 10
+MAX_RECURSION = 2
 csv_folder = Path('csv')
 cities = pd.read_csv('csv/city.csv')
 seed_value = 42
@@ -197,6 +198,11 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                     "publicationType": paper.get("publicationType"),
                     "publicationDate": paper.get("publicationDate"),
                     "publicationId": paper.get("publicationId")
+                })
+
+                writers['paper_relevant_author'].writerow({
+                    "paperId": paperId,
+                    "relevantAuthorId": get_referencing_author_id(paper_authors)
                 })
 
                 new_papers = set([paper['paperId'] for paper in paper['references']])
