@@ -49,27 +49,19 @@ def get_referencing_author_id(authors):
 
 # %%
 csv_files = {
-    "paper": ["paperId","corpusId", "title", "referenceAuthorId", "abstract", "url", "publicationType", "publicationDate","publicationId","yearId"],
+    "paper": ["paperId","corpusId", "title", "referenceAuthorId", "abstract", "url", "publicationType", "publicationDate","publicationId","year"],
     "paper_paper": ["citingPaperId", "citedPaperId"],
     "author": ["authorId", "authorName"],
-    "paper_author": ["authorId", "paperId"],
+    "author_paper": ["authorId", "paperId"],
     "paper_relevant_author": ["paperId", "relevantAuthorId"],
     "paper_reviewer": ["paperId", "reviewAuthorId"],
+    "paper_conference": ["paperId", "conferenceId"],
+    "paper_journal": ["paperId", "journalId"],
     "keywords": ["keyword"],
     "paper_keywords": ["paperId", "keyword"],
-    "conference": ["conferenceId", "conferenceName", "yearId", "cityId"],
-    "journal": ["journalId", "journalName", "journalPages", "journalVolume","yearId"],
+    "conference": ["conferenceId", "conferenceName", "year", "cityId"],
+    "journal": ["journalId", "journalName", "journalPages", "journalVolume","year"],
 }
-
-# %%
-#This is synthetic (Not worthy to generate it)
-years = list(range(1950, datetime.now().year + 1))
-ids = [year-1950 for year in years]
-# Create a DataFrame
-df = pd.DataFrame({"ids":ids, "Year": years})
-
-# Save to CSV
-df.to_csv("csv/years.csv", sep="|",index=False)
 
 
 # %%
@@ -103,7 +95,7 @@ def choose_n_papers_to_process(to_be_processed_papers, n):
 BATCH_SIZE = 200
 MAX_RECURSION = 2
 csv_folder = Path('csv')
-cities = pd.read_csv('csv/city.csv')
+cities = pd.read_csv('csv/city.csv', delimiter="|")
 seed_value = 42
 np.random.seed(seed_value) 
 
@@ -148,21 +140,27 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                 processed_papers.add(paper['paperId'])
                 if not is_valid_paper(paper):
                     continue
+                paperId = paper.get("paperId")
                 paper["publicationId"]=paper["publicationVenue"]["id"]
                 if is_valid_conference(paper):
                     paper["publicationType"]="Conference"
                     paper["journalName"]=None
                     paper["journalVolume"]=None
                     paper["journalPages"]=None
+                    conferenceId = paper["publicationId"] + str(paper["year"])
                     if paper["publicationId"]+str(paper["year"]) not in set_conferences:
                         set_conferences.add(paper["publicationId"]+str(paper["year"]))
                         writers['conference'].writerow({
-                        "conferenceId": paper["publicationId"],
+                        "conferenceId": conferenceId,
                         "conferenceName": paper["publicationVenue"]["name"],
-                        "yearId": paper["year"]-1950,
+                        "year": paper["year"],
                         "cityId": cities['id'].sample(n=1, replace=True).iloc[0]
                         })
-                    
+
+                    writers["paper_conference"].writerow({
+                        "paperId": paperId,
+                        "conferenceId": conferenceId
+                    })
                     
                 elif is_valid_journal(paper):
                     paper["publicationType"]="JournalArticle"
@@ -176,16 +174,20 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                     if paper["publicationId"]+str(paper["year"]) not in set_joutnals:
                         set_joutnals.add(paper["publicationId"]+str(paper["year"]))
                         writers['journal'].writerow({
-                        "journalId": paper["publicationId"],
+                        "journalId": paper["publicationId"] + str(paper["year"]),
                         "journalName": paper["journalName"],
                         "journalVolume": paper["journalVolume"],
                         "journalPages": paper["journalPages"], 
-                        "yearId": paper["year"]-1950,
+                        "year": paper["year"],
                         })
-                    
+
+                    writers["paper_journal"].writerow({
+                        "paperId": paperId,
+                        "journalId": paper["publicationId"] + str(paper["year"])
+                    })
+
                 else:
                     continue   
-                paperId = paper.get("paperId")
                 paper_authors = paper["authors"]
                 writers['paper'].writerow({
                     "paperId": paperId,
@@ -194,11 +196,12 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                     "referenceAuthorId": get_referencing_author_id(paper_authors),
                     "abstract": paper.get("abstract").strip().replace("\n", " ").replace("|", " ").replace('"', "").replace("^", " "),
                     "url": paper.get("url"),
-                    "yearId": paper.get("year")-1950,
+                    "year": paper.get("year"),
                     "publicationType": paper.get("publicationType"),
                     "publicationDate": paper.get("publicationDate"),
                     "publicationId": paper.get("publicationId")
                 })
+
 
                 writers['paper_relevant_author'].writerow({
                     "paperId": paperId,
@@ -218,9 +221,9 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                     authorId = author.get("authorId")
                     authorName = author.get("name")
                     if authorId and authorName:
-                        writers['paper_author'].writerow({
-                            "paperId": paperId,
-                            "authorId": authorId
+                        writers['author_paper'].writerow({
+                            "authorId": authorId,
+                            "paperId": paperId
                         })
 
                     if authorId and authorName and authorId not in set_authors:
