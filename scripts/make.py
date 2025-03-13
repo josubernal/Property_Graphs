@@ -2,6 +2,7 @@
 import requests, json, os, csv, re, urllib.parse
 import pandas as pd
 from dotenv import load_dotenv
+import random
 from time import sleep
 from pathlib import Path
 from contextlib import ExitStack
@@ -40,13 +41,13 @@ csv_with_types = {
         "author_paper": ["authorId:START_ID", "paperId:END_ID"],
         "paper_corresponding_author": ["paperId:START_ID", "correspondingAuthorId:END_ID"],
         "paper_reviewer": ["paperId:START_ID", "reviewAuthorId:END_ID"],
-        "paper_conference": ["paperId:START_ID", "conferenceEditionId:END_ID"],
+        "paper_confws": ["paperId:START_ID", "confwsEditionId:END_ID"],
         "paper_journal": ["paperId:START_ID", "journalId:END_ID"],
         "keywords": ["keyword:ID"],
         "paper_keywords": ["paperId:START_ID", "keyword:END_ID"],
-        "conference": ["conferenceId:ID", "conferenceName:string"],
-        "conference_edition": ["conferenceEditionId:ID", "year:int", "city:string"],
-        "conference_edition_conference": ["conferenceEditionId:START_ID", "conferenceId:END_ID"],
+        "confws": ["confwsId:ID", "name:string", "label:LABEL"],
+        "confws_edition": ["confwsEditionId:ID", "year:int", "city:string", "label:LABEL"],
+        "confws_edition_confws": ["confwsEditionId:START_ID", "confwsId:END_ID"],
         "journal": ["journalId:ID", "journalName:string", "journalPages:string", "journalVolume:int","year:int"],
         }
 
@@ -105,8 +106,8 @@ set_authors = set()
 set_keywords = set()
 set_papers = set()
 set_journals = set()
-set_conferences = set()
-set_conferences_edition = set()
+set_confws = set()
+set_confws_edition = set()
 
 with ExitStack() as stack:  # Ensures all files are closed properly
     files = {name: stack.enter_context(open(csv_folder / (name + '.csv'), "w", newline='', encoding="utf-8")) for name in csv_files}
@@ -141,34 +142,39 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                 paperId = paper.get("paperId")
                 paper["publicationId"]=paper["publicationVenue"]["id"]
                 if is_valid_conference(paper):
-                    paper["publicationType"]="Conference"
+                    if random.random() > 0.5:
+                        paper["publicationType"]="Conference"
+                    else:
+                        paper["publicationType"]="Workshop"
                     paper["journalName"]=None
                     paper["journalVolume"]=None
                     paper["journalPages"]=None
-                    if paper["publicationId"] not in set_conferences:
-                        set_conferences.add(paper["publicationId"])
-                        writers["conference"].writerow({
-                            "conferenceId": paper["publicationId"],
-                            "conferenceName": paper["publicationVenue"]["name"]
+                    if paper["publicationId"] not in set_confws:
+                        set_confws.add(paper["publicationId"])
+                        writers["confws"].writerow({
+                            "confwsId": paper["publicationId"],
+                            "name": paper["publicationVenue"]["name"],
+                            "label": paper["publicationType"]
                             })
 
-                    conferenceEditionId = paper["publicationId"] + str(paper["year"])
-                    if conferenceEditionId not in set_conferences_edition:
-                        set_conferences_edition.add(conferenceEditionId)
-                        writers['conference_edition'].writerow({
-                            "conferenceEditionId": conferenceEditionId,
+                    confwsEditionId = paper["publicationId"] + str(paper["year"])
+                    if confwsEditionId not in set_confws_edition:
+                        set_confws_edition.add(confwsEditionId)
+                        writers['confws_edition'].writerow({
+                            "confwsEditionId": confwsEditionId,
                             "year": paper["year"],
-                            "city": cities['city_ascii'].sample(n=1, replace=True).iloc[0]
+                            "city": cities['city_ascii'].sample(n=1, replace=True).iloc[0],
+                            "label": paper["publicationType"] + "Edition"
                             })
 
-                        writers['conference_edition_conference'].writerow({
-                            "conferenceEditionId": conferenceEditionId,
-                            "conferenceId": paper["publicationId"]
+                        writers['confws_edition_confws'].writerow({
+                            "confwsEditionId": confwsEditionId,
+                            "confwsId": paper["publicationId"]
                             })
 
-                    writers["paper_conference"].writerow({
+                    writers["paper_confws"].writerow({
                         "paperId": paperId,
-                        "conferenceEditionId": conferenceEditionId
+                        "confwsEditionId": confwsEditionId
                         })
 
                 elif is_valid_journal(paper):
@@ -261,32 +267,9 @@ with ExitStack() as stack:  # Ensures all files are closed properly
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON: {e}")
 
-
 papers_file = "csv/paper.csv"
-conferences_file = "csv/conference.csv"
-journals_file = "csv/journal.csv"
 
 df=pd.read_csv(papers_file, delimiter='|')
-df_conferences=pd.read_csv(conferences_file, delimiter='|')
-df_journals=pd.read_csv(journals_file, delimiter='|')
-
-
-conferences=list(set(df_conferences["conferenceId"].to_list()))
-
-split_index = len(conferences) // 2
-
-work_shops = conferences[split_index:]
-conferences = conferences[:split_index]
-
-df_conf = df_conferences[df_conferences['conferenceId'].isin(conferences)]
-df_workshops= df_conferences[df_conferences['conferenceId'].isin(work_shops)]
-df_workshops.rename(columns={'conferenceId': 'workshopId','conferenceName':'workshopName'})
-df.loc[df['publicationId'].isin(work_shops), 'publicationType'] = 'WorkShop'
-
-# Save each filtered DataFrame to a separate CSV file
-df_conf.to_csv("csv/conference.csv", sep="|",index=False)
-df_workshops.to_csv("csv/workshop.csv", sep="|", index=False)
-df.to_csv("csv/paper.csv", sep="|", index=False)
 
 # Cleaning references
 citations_file="csv/paper_paper.csv"
