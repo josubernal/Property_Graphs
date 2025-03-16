@@ -7,7 +7,11 @@ from time import sleep
 from pathlib import Path
 from contextlib import ExitStack
 from datetime import datetime
+import uuid
 import numpy as np
+
+from keybert import KeyBERT
+from sentence_transformers import SentenceTransformer, util
 
 load_dotenv()
 
@@ -32,6 +36,20 @@ def is_valid_conference(paper):
 
 def is_valid_journal(paper):
     return "JournalArticle" in paper["publicationTypes"] and paper["journal"] is not None and "name" in paper["journal"] and "pages" in paper["journal"] and "volume" in paper["journal"]
+
+
+kw_model = KeyBERT()
+mandatory_keywords = ["data management", "indexing", "data modeling", "big data", "data processing", "data storage", "data querying"]
+semantic_model = SentenceTransformer("all-MiniLM-L6-v2")
+keyword_embeddings = semantic_model.encode(mandatory_keywords)
+def generate_keywords(abstract):
+    generated_keywords = kw_model.extract_keywords(abstract, keyphrase_ngram_range=(1, 2), stop_words='english', top_n=2)
+    generated_keywords = set(kw[0] for kw in generated_keywords)
+    abstract_embedding = semantic_model.encode(abstract)
+    top_indices = util.cos_sim(abstract_embedding, keyword_embeddings).argsort(descending=True)[0][:random.randint(0, 2)]
+
+    best_mandatory_keywords = set([mandatory_keywords[idx] for idx in top_indices])
+    return generated_keywords.union(best_mandatory_keywords)
 
 
 csv_with_types = {
@@ -67,8 +85,11 @@ for key, value in csv_with_types.items():
 
 #********************************************************************************************************************
 RECORDS = 100  # Number of records to save per category 
+BATCH_SIZE = 300
+MAX_RECURSION = 10
+SEED_VALUE = 42
 QUERY = "semantic data modelling and property graphs"  # Query to filter the papers
-FIELDS = "paperId,corpusId,title,abstract,authors,url,year,s2FieldsOfStudy,publicationDate,publicationTypes,journal,venue,publicationVenue,references.paperId"  # Fields to retrieve from the API
+FIELDS = "paperId,corpusId,title,abstract,authors,url,year,publicationDate,publicationTypes,journal,venue,publicationVenue,references.paperId"  # Fields to retrieve from the API
 #********************************************************************************************************************
 
 query_encoded = urllib.parse.quote(QUERY)
@@ -90,12 +111,9 @@ def process_new_papers(processed_papers, to_be_processed_papers, processing_pape
 def choose_n_papers_to_process(to_be_processed_papers, n):
     return {to_be_processed_papers.pop() for _ in range(min(n, len(to_be_processed_papers)))}
 
-BATCH_SIZE = 300
-MAX_RECURSION = 10
 csv_folder = Path('csv')
 cities = pd.read_csv('csv/city.csv', delimiter="|")
-seed_value = 42
-np.random.seed(seed_value) 
+np.random.seed(SEED_VALUE) 
 
 processed_papers = set()
 to_be_processed_papers = set()
@@ -108,6 +126,7 @@ set_papers = set()
 set_journals = set()
 set_confws = set()
 set_confws_edition = set()
+
 
 with ExitStack() as stack:  # Ensures all files are closed properly
     files = {name: stack.enter_context(open(csv_folder / (name + '.csv'), "w", newline='', encoding="utf-8")) for name in csv_files}
@@ -211,9 +230,7 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                     "abstract": paper.get("abstract").strip().replace("\n", " ").replace("|", " ").replace('"', "").replace("^", " "),
                     "url": paper.get("url"),
                     "year": paper.get("year"),
-                    "publicationType": paper.get("publicationType"),
-                    "publicationDate": paper.get("publicationDate"),
-                    "publicationId": paper.get("publicationId")
+                    "publicationDate": paper.get("publicationDate")
                     })
 
 
@@ -248,8 +265,8 @@ with ExitStack() as stack:  # Ensures all files are closed properly
 
                         set_authors.add(authorId)
 
-                paper_keywords = paper.get("s2FieldsOfStudy", [])
-                paper_keywords = set(map(lambda x: x['category'], paper_keywords))
+
+                paper_keywords = generate_keywords(paper.get('abstract'))
 
                 for keyword in paper_keywords:
                     writers["paper_keywords"].writerow({
@@ -267,6 +284,10 @@ with ExitStack() as stack:  # Ensures all files are closed properly
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON: {e}")
 
+
+#########################
+#### POST-PROCESSING ####
+#########################
 
 # Cleaning references
 papers_file = "csv/paper.csv"
@@ -287,16 +308,12 @@ def get_unjoined_rows(dfpapers, dfauthors, dfauthorspapers, sample_size=3):
     for i, row in dfpapers.iterrows():
         id1_value = row['paperId']
         
-        # Get id2 values already joined with this id1
         joined_ids = set(dfauthorspapers[dfauthorspapers['paperId'] == id1_value]['authorId'])
         
-        # Filter df2 to exclude already joined rows
         unjoined_dfauthors = dfauthors[~dfauthors['authorId'].isin(joined_ids)]
         
-        # Sample three rows (or as many as available)
         sampled_rows = unjoined_dfauthors.sample(n=min(sample_size, len(unjoined_dfauthors)), random_state=42)
         
-        # Store results
         for _, sample_row in sampled_rows.iterrows():
             result.append({'paperId': id1_value, 'reviewerId': sample_row['authorId']})
     
