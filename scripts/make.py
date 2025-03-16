@@ -47,7 +47,7 @@ csv_with_types = {
         "confws": ["confwsId:ID", "name:string", "label:LABEL"],
         "confws_edition": ["confwsEditionId:ID", "year:int", "city:string", "label:LABEL"],
         "confws_edition_confws": ["confwsEditionId:START_ID", "confwsId:END_ID"],
-        "journal": ["journalId:ID", "journalName:string", "journalPages:string", "journalVolume:int","year:int"],
+        "journal": ["journalId:ID", "journalName:string", "journalPages:string", "journalVolume:string","year:int"],
         "paper_review": ["paperId:START_ID", "reviewerAuthorId:END_ID"]
         }
 
@@ -90,8 +90,8 @@ def process_new_papers(processed_papers, to_be_processed_papers, processing_pape
 def choose_n_papers_to_process(to_be_processed_papers, n):
     return {to_be_processed_papers.pop() for _ in range(min(n, len(to_be_processed_papers)))}
 
-BATCH_SIZE = 200
-MAX_RECURSION = 2
+BATCH_SIZE = 300
+MAX_RECURSION = 10
 csv_folder = Path('csv')
 cities = pd.read_csv('csv/city.csv', delimiter="|")
 seed_value = 42
