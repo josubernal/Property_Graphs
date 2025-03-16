@@ -40,7 +40,6 @@ csv_with_types = {
         "author": ["authorId:ID", "authorName:string"],
         "author_paper": ["authorId:START_ID", "paperId:END_ID"],
         "paper_corresponding_author": ["paperId:START_ID", "correspondingAuthorId:END_ID"],
-        "paper_reviewer": ["paperId:START_ID", "reviewAuthorId:END_ID"],
         "paper_confws": ["paperId:START_ID", "confwsEditionId:END_ID"],
         "paper_journal": ["paperId:START_ID", "journalId:END_ID"],
         "keywords": ["keyword:ID"],
@@ -49,6 +48,7 @@ csv_with_types = {
         "confws_edition": ["confwsEditionId:ID", "year:int", "city:string", "label:LABEL"],
         "confws_edition_confws": ["confwsEditionId:START_ID", "confwsId:END_ID"],
         "journal": ["journalId:ID", "journalName:string", "journalPages:string", "journalVolume:int","year:int"],
+        "paper_review": ["paperId:START_ID", "reviewerAuthorId:END_ID"]
         }
 
 
@@ -267,16 +267,47 @@ with ExitStack() as stack:  # Ensures all files are closed properly
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON: {e}")
 
-papers_file = "csv/paper.csv"
-
-df=pd.read_csv(papers_file, delimiter='|')
 
 # Cleaning references
+papers_file = "csv/paper.csv"
 citations_file="csv/paper_paper.csv"
+df=pd.read_csv(papers_file, delimiter='|')
 
 df_citations=pd.read_csv(citations_file, delimiter='|')
 df_citations_new = df_citations[df_citations["citedPaperId"].isin(df['paperId'].to_list())]
 df_citations_new.to_csv("csv/paper_paper.csv", sep='|', index=False)
+
+authors_file = "csv/author.csv"
+author_paper_file ="csv/author_paper.csv"
+
+
+def get_unjoined_rows(dfpapers, dfauthors, dfauthorspapers, sample_size=3):
+    result = []
+    
+    for i, row in dfpapers.iterrows():
+        id1_value = row['paperId']
+        
+        # Get id2 values already joined with this id1
+        joined_ids = set(dfauthorspapers[dfauthorspapers['paperId'] == id1_value]['authorId'])
+        
+        # Filter df2 to exclude already joined rows
+        unjoined_dfauthors = dfauthors[~dfauthors['authorId'].isin(joined_ids)]
+        
+        # Sample three rows (or as many as available)
+        sampled_rows = unjoined_dfauthors.sample(n=min(sample_size, len(unjoined_dfauthors)), random_state=42)
+        
+        # Store results
+        for _, sample_row in sampled_rows.iterrows():
+            result.append({'paperId': id1_value, 'reviewerId': sample_row['authorId']})
+    
+    return pd.DataFrame(result)
+
+df_authors=pd.read_csv(authors_file, delimiter='|')
+df_authors_papers=pd.read_csv(author_paper_file, delimiter='|')
+df_reviwers= get_unjoined_rows(df, df_authors, df_authors_papers) 
+df_reviwers.to_csv("csv/paper_review.csv", sep='|', index=False)
+
+
 
 
 for csv_name in csv_files.keys():
@@ -285,5 +316,6 @@ for csv_name in csv_files.keys():
     with open(csv_folder / (csv_name + '.csv'), 'w') as fout:
         fout.write("|".join(final_csv_headers[csv_name]) + '\n')
         fout.writelines(data[1:])
+        
 
 print("CSVs successfully created")
