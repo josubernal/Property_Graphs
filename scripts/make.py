@@ -35,7 +35,7 @@ def is_valid_journal(paper):
 
 
 csv_with_types = {
-        "paper": ["paperId:ID", "corpusId:string", "title:string", "abstract:string", "url:string", "publicationType:string", "publicationDate:string", "publicationId:string", "year:int"],
+        "paper": ["paperId:ID", "corpusId:string", "title:string", "abstract:string", "url:string", "publicationDate:string", "year:int"],
         "paper_paper": ["citingPaperId:START_ID", "citedPaperId:END_ID"],
         "author": ["authorId:ID", "authorName:string"],
         "author_paper": ["authorId:START_ID", "paperId:END_ID"],
