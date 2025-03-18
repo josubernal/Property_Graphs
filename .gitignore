@@ -3,3 +3,4 @@ rawdata
 csv/*
 !csv/neo4j_import.sh
 !csv/city.csv
+.idea
