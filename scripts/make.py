@@ -57,7 +57,7 @@ csv_with_types = {
         "paper_corresponding_author": ["paperId:START_ID", "correspondingAuthorId:END_ID"],
         "paper_confws": ["paperId:START_ID", "confwsEditionId:END_ID"],
         "paper_journal": ["paperId:START_ID", "journalId:END_ID", "journalVolume:string", "journalPages:string", "year:int"],
-        "keywords": ["keyword:ID"],
+        "keywords": ["sid:ID","keyword:string"],
         "paper_keywords": ["paperId:START_ID", "keyword:END_ID"],
         "confws": ["confwsId:ID", "name:string", "type:string"],
         "confws_edition": ["confwsEditionId:ID", "editionName:string", "year:int", "city:string", "type:string"],
@@ -331,8 +331,18 @@ df_authors_papers=pd.read_csv(author_paper_file, delimiter='|')
 df_reviwers= get_unjoined_rows(df, df_authors, df_authors_papers) 
 df_reviwers.to_csv("csv/paper_review.csv", sep='|', index=False)
 
+keyword_file="csv/keywords.csv"
+keyword_paper_file="csv/paper_keywords.csv"
+df_keywords=pd.read_csv(keyword_file, delimiter='|')
+df_paper_keywords=pd.read_csv(keyword_paper_file, delimiter='|')
 
+df_keywords['sid'] = range(1, len(df_keywords) + 1)
+df_paper_keywords = df_paper_keywords.merge(df_keywords[['keyword', 'sid']], on='keyword', how='left')
 
+df_paper_keywords.drop(columns=['keyword'], inplace=True)
+
+df_keywords.to_csv(keyword_file, sep='|', index=False)
+df_paper_keywords.to_csv(keyword_paper_file, sep='|', index=False)
 
 for csv_name in csv_files.keys():
     with open(csv_folder / (csv_name + '.csv'), 'r') as fin:
