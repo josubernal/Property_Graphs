@@ -27,7 +27,7 @@ def get_corresponding_author_id(authors):
 
 
 def is_valid_paper(paper):
-    return paper['authors'] and get_corresponding_author_id(paper['authors']) and paper['abstract'] is not None and paper['title'] is not None and paper['year'] is not None and paper['publicationTypes'] is not None and paper["publicationVenue"] is not None
+    return paper['authors'] and get_corresponding_author_id(paper['authors']) and paper['abstract'] is not None and paper['title'] is not None and paper['year'] is not None and paper['publicationTypes'] is not None and paper["publicationVenue"] is not None and paper["publicationVenue"]["id"] is not None
 
 
 def is_valid_conference(paper):
@@ -163,6 +163,7 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                 paperId = paper.get("paperId")
                 paper["publicationId"]=paper["publicationVenue"]["id"]
                 if is_valid_conference(paper):
+                    paper["publicationId"] = paper["publicationId"] + 'conf'
                     if paper["publicationId"] in set_confws:
                         paper["publicationType"]= confws_type[paper["publicationId"]]
                     elif random.random() > 0.5:
@@ -202,6 +203,7 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                         })
 
                 elif is_valid_journal(paper):
+                    paper["publicationId"] = paper["publicationId"] + 'journ'
                     paper["publicationType"]="JournalArticle"
                     paper["venue"]=None
                     paper["journalName"]=paper["journal"]["name"]
