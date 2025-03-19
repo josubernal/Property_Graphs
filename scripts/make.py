@@ -38,34 +38,35 @@ def is_valid_journal(paper):
     return "JournalArticle" in paper["publicationTypes"] and paper["journal"] is not None and "name" in paper["journal"] and "pages" in paper["journal"] and "volume" in paper["journal"]
 
 
-kw_model = KeyBERT()
 mandatory_keywords = ["data management", "indexing", "data modeling", "big data", "data processing", "data storage", "data querying"]
+#kw_model = KeyBERT()
 semantic_model = SentenceTransformer("all-MiniLM-L6-v2")
 keyword_embeddings = semantic_model.encode(mandatory_keywords)
 def generate_keywords(abstract):
-    generated_keywords = kw_model.extract_keywords(abstract, keyphrase_ngram_range=(1, 2), stop_words='english', top_n=2)
-    generated_keywords = set(kw[0] for kw in generated_keywords)
+    #generated_keywords = kw_model.extract_keywords(abstract, keyphrase_ngram_range=(1, 2), stop_words='english', top_n=2)
+    #generated_keywords = set(kw[0] for kw in generated_keywords)
+    generated_keywords = set()
     abstract_embedding = semantic_model.encode(abstract)
-    top_indices = util.cos_sim(abstract_embedding, keyword_embeddings).argsort(descending=True)[0][:random.randint(0, 2)]
+    top_indices = util.cos_sim(abstract_embedding, keyword_embeddings).argsort(descending=True)[0][:random.randint(1, 2)]
 
     best_mandatory_keywords = set([mandatory_keywords[idx] for idx in top_indices])
     return generated_keywords.union(best_mandatory_keywords)
 
 
 csv_with_types = {
-        "paper": ["paperId:ID", "corpusId:string", "title:string", "abstract:string", "url:string", "publicationDate:string", "year:int"],
+        "paper": ["paperId:ID", "corpusId:string", "title:string", "abstract:string", "url:string", "publicationDate:string"],
         "paper_paper": ["citingPaperId:START_ID", "citedPaperId:END_ID"],
         "author": ["authorId:ID", "authorName:string"],
         "author_paper": ["authorId:START_ID", "paperId:END_ID"],
         "paper_corresponding_author": ["paperId:START_ID", "correspondingAuthorId:END_ID"],
         "paper_confws": ["paperId:START_ID", "confwsEditionId:END_ID"],
-        "paper_journal": ["paperId:START_ID", "journalId:END_ID"],
+        "paper_journal": ["paperId:START_ID", "journalId:END_ID", "journalVolume:string", "journalPages:string", "year:int"],
         "keywords": ["keyword:ID"],
         "paper_keywords": ["paperId:START_ID", "keyword:END_ID"],
-        "confws": ["confwsId:ID", "name:string", "label:LABEL"],
-        "confws_edition": ["confwsEditionId:ID", "year:int", "city:string", "label:LABEL"],
+        "confws": ["confwsId:ID", "name:string", "type:string"],
+        "confws_edition": ["confwsEditionId:ID", "editionName:string", "year:int", "city:string", "type:string"],
         "confws_edition_confws": ["confwsEditionId:START_ID", "confwsId:END_ID"],
-        "journal": ["journalId:ID", "journalName:string", "journalPages:string", "journalVolume:string","year:int"],
+        "journal": ["journalId:ID", "journalName:string"],
         "paper_review": ["paperId:START_ID", "reviewerAuthorId:END_ID"]
         }
 
@@ -126,6 +127,7 @@ set_papers = set()
 set_journals = set()
 set_confws = set()
 set_confws_edition = set()
+confws_type = dict()
 
 
 with ExitStack() as stack:  # Ensures all files are closed properly
@@ -161,7 +163,9 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                 paperId = paper.get("paperId")
                 paper["publicationId"]=paper["publicationVenue"]["id"]
                 if is_valid_conference(paper):
-                    if random.random() > 0.5:
+                    if paper["publicationId"] in set_confws:
+                        paper["publicationType"]= confws_type[paper["publicationId"]]
+                    elif random.random() > 0.5:
                         paper["publicationType"]="Conference"
                     else:
                         paper["publicationType"]="Workshop"
@@ -170,10 +174,11 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                     paper["journalPages"]=None
                     if paper["publicationId"] not in set_confws:
                         set_confws.add(paper["publicationId"])
+                        confws_type[paper["publicationId"]] = paper["publicationType"]
                         writers["confws"].writerow({
                             "confwsId": paper["publicationId"],
                             "name": paper["publicationVenue"]["name"],
-                            "label": paper["publicationType"]
+                            "type": paper["publicationType"]
                             })
 
                     confwsEditionId = paper["publicationId"] + str(paper["year"])
@@ -183,7 +188,7 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                             "confwsEditionId": confwsEditionId,
                             "year": paper["year"],
                             "city": cities['city_ascii'].sample(n=1, replace=True).iloc[0],
-                            "label": paper["publicationType"] + "Edition"
+                            "type": paper["publicationType"] + "Edition"
                             })
 
                         writers['confws_edition_confws'].writerow({
@@ -205,19 +210,19 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                         paper["journalPages"]=re.sub(r'\s+', '', paper["journal"]["pages"])
                     else:
                         paper["journalPages"]=None
-                    if paper["publicationId"]+str(paper["year"]) not in set_journals:
-                        set_journals.add(paper["publicationId"]+str(paper["year"]))
+                    if paper["publicationId"] not in set_journals:
+                        set_journals.add(paper["publicationId"])
                         writers['journal'].writerow({
-                            "journalId": paper["publicationId"] + str(paper["year"]),
+                            "journalId": paper["publicationId"],
                             "journalName": paper["journalName"],
-                            "journalVolume": paper["journalVolume"],
-                            "journalPages": paper["journalPages"], 
-                            "year": paper["year"],
                             })
 
                     writers["paper_journal"].writerow({
                         "paperId": paperId,
-                        "journalId": paper["publicationId"] + str(paper["year"])
+                        "journalId": paper["publicationId"],
+                        "journalVolume": paper["journalVolume"],
+                        "journalPages": paper["journalPages"], 
+                        "year": paper["year"],
                         })
 
                 else:
@@ -229,7 +234,6 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                     "title":  paper.get("title").strip().replace("\n", " ").replace("|", " ").replace('"', "").replace("^", " "),
                     "abstract": paper.get("abstract").strip().replace("\n", " ").replace("|", " ").replace('"', "").replace("^", " "),
                     "url": paper.get("url"),
-                    "year": paper.get("year"),
                     "publicationDate": paper.get("publicationDate")
                     })
 
