@@ -2,12 +2,9 @@
 import requests, json, os, csv, re, urllib.parse
 import pandas as pd
 from dotenv import load_dotenv
-import random
-from time import sleep
+import random, time
 from pathlib import Path
 from contextlib import ExitStack
-from datetime import datetime
-import uuid
 import numpy as np
 
 from keybert import KeyBERT
@@ -39,15 +36,14 @@ def is_valid_journal(paper):
 
 
 mandatory_keywords = ["data management", "indexing", "data modeling", "big data", "data processing", "data storage", "data querying"]
-#kw_model = KeyBERT()
+kw_model = KeyBERT()
 semantic_model = SentenceTransformer("all-MiniLM-L6-v2")
 keyword_embeddings = semantic_model.encode(mandatory_keywords)
 def generate_keywords(abstract):
-    #generated_keywords = kw_model.extract_keywords(abstract, keyphrase_ngram_range=(1, 2), stop_words='english', top_n=2)
-    #generated_keywords = set(kw[0] for kw in generated_keywords)
-    generated_keywords = set()
+    generated_keywords = kw_model.extract_keywords(abstract, keyphrase_ngram_range=(1, 2), stop_words='english', top_n=2)
+    generated_keywords = set(kw[0] for kw in generated_keywords)
     abstract_embedding = semantic_model.encode(abstract)
-    top_indices = util.cos_sim(abstract_embedding, keyword_embeddings).argsort(descending=True)[0][:random.randint(1, 2)]
+    top_indices = util.cos_sim(abstract_embedding, keyword_embeddings).argsort(descending=True)[0][:random.randint(0, 2)]
 
     best_mandatory_keywords = set([mandatory_keywords[idx] for idx in top_indices])
     return generated_keywords.union(best_mandatory_keywords)
@@ -86,20 +82,24 @@ for key, value in csv_with_types.items():
 
 #********************************************************************************************************************
 RECORDS = 100  # Number of records to save per category 
-BATCH_SIZE = 300
-MAX_RECURSION = 10
+BATCH_SIZE = 450
+MAX_RECURSION = 12
 SEED_VALUE = 42
 QUERY = "semantic data modelling and property graphs"  # Query to filter the papers
+TOPICS = ["semantic data modelling", "machine learning", "data querying", "big data"]
 FIELDS = "paperId,corpusId,title,abstract,authors,url,year,publicationDate,publicationTypes,journal,venue,publicationVenue,references.paperId"  # Fields to retrieve from the API
 #********************************************************************************************************************
 
-query_encoded = urllib.parse.quote(QUERY)
 fields_encoded = urllib.parse.quote(FIELDS)
 type_encoded = urllib.parse.quote("Conference,JournalArticle")
 
-starting_papers_url="https://api.semanticscholar.org/graph/v1/paper/search?query="+query_encoded+"&publicationTypes="+type_encoded+"&fields=paperId&limit="+str(RECORDS)
-response = requests.get(starting_papers_url, headers=headers).json()
-starting_papers = response["data"]
+starting_papers = []
+for TOPIC in TOPICS:
+    query_encoded = urllib.parse.quote(TOPIC)
+    starting_papers_url="https://api.semanticscholar.org/graph/v1/paper/search?query="+query_encoded+"&publicationTypes="+type_encoded+"&fields=paperId&limit="+str(RECORDS)
+    response = requests.get(starting_papers_url, headers=headers).json()
+    starting_papers.extend(response["data"])
+    time.sleep(1)
 
 
 def process_new_papers(processed_papers, to_be_processed_papers, processing_papers, new_papers):
@@ -187,7 +187,7 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                         set_confws_edition.add(confwsEditionId)
                         writers['confws_edition'].writerow({
                             "confwsEditionId": confwsEditionId,
-                            "editionName": paper["publicationVenue"]["name"] + paper["publicationVenue"]["year"],
+                            "editionName": paper["publicationVenue"]["name"] + str(paper["year"]),
                             "year": paper["year"],
                             "city": cities['city_ascii'].sample(n=1, replace=True).iloc[0],
                             "type": paper["publicationType"] + "Edition"
