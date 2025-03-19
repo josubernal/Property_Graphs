@@ -187,6 +187,7 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                         set_confws_edition.add(confwsEditionId)
                         writers['confws_edition'].writerow({
                             "confwsEditionId": confwsEditionId,
+                            "editionName": paper["publicationVenue"]["name"] + paper["publicationVenue"]["year"],
                             "year": paper["year"],
                             "city": cities['city_ascii'].sample(n=1, replace=True).iloc[0],
                             "type": paper["publicationType"] + "Edition"
