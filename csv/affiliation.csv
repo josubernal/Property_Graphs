@@ -1,0 +1,625 @@
+1|Apple Inc.|Company
+2|Microsoft Corporation|Company
+3|Nvidia Corporation|Company
+4|Broadcom Inc.|Company
+5|Taiwan Semiconductor Manufacturing Company Limited|Company
+6|Samsung Electronics Co., Ltd.|Company
+7|ASML Holding N.V.|Company
+8|Oracle Corporation|Company
+9|Adobe Inc.|Company
+10|salesforce.com, inc.|Company
+11|Advanced Micro Devices, Inc.|Company
+12|Accenture plc|Company
+13|Cisco Systems, Inc.|Company
+14|Intel Corporation|Company
+15|SAP SE|Company
+16|Intuit Inc.|Company
+17|Qualcomm Incorporated|Company
+18|Texas Instruments Incorporated|Company
+19|International Business Machines Corporation|Company
+20|ServiceNow, Inc.|Company
+21|Applied Materials, Inc.|Company
+22|Uber Technologies, Inc.|Company
+23|Sony Group Corporation|Company
+24|SinoCloud Group Ltd|Company
+25|Keyence Corp|Company
+26|Lam Research Corporation|Company
+27|Analog Devices, Inc.|Company
+28|Shopify Inc.|Company
+29|Micron Technology, Inc.|Company
+30|Palo Alto Networks, Inc.|Company
+31|Tokyo Electron Ltd|Company
+32|Fiserv, Inc.|Company
+33|SK hynix, Inc.|Company
+34|KLA Corporation|Company
+35|Infosys Limited|Company
+36|Synopsys, Inc.|Company
+37|Arista Networks, Inc.|Company
+38|Workday, Inc.|Company
+39|Cadence Design Systems, Inc.|Company
+40|Dassault Systèmes SE|Company
+41|VMware, Inc.|Company
+42|Snowflake Inc.|Company
+43|CrowdStrike Holdings, Inc.|Company
+44|Amphenol Corporation|Company
+45|Atlassian Corporation Plc|Company
+46|NXP Semiconductors N.V.|Company
+47|Dell Technologies Inc.|Company
+48|Constellation Software Inc.|Company
+49|Motorola Solutions, Inc.|Company
+50|Marvell Technology Group Ltd.|Company
+51|Infineon Technologies AG|Company
+52|Marvell Technology, Inc.|Company
+53|MediaTek, Inc.|Company
+54|Autodesk, Inc.|Company
+55|Xiaomi Corp|Company
+56|Hon Hai Precision Industry Co. Ltd|Company
+57|Microchip Technology Incorporated|Company
+58|Fortinet, Inc.|Company
+59|TE Connectivity Ltd.|Company
+60|Block, Inc.|Company
+61|STMicroelectronics N.V.|Company
+62|Murata Manufacturing Co. Ltd|Company
+63|Adyen N.V.|Company
+64|Foxconn Industrial Internet Co. Ltd|Company
+65|Coinbase Global, Inc.|Company
+66|Cognizant Technology Solutions Corporation|Company
+67|Datadog, Inc.|Company
+68|Fidelity National Information Services, Inc.|Company
+69|Palantir Technologies Inc.|Company
+70|Capgemini SE|Company
+71|ON Semiconductor Corporation|Company
+72|The Trade Desk, Inc.|Company
+73|Gartner, Inc.|Company
+74|Hexagon AB|Company
+75|GlobalFoundries Inc.|Company
+76|Zscaler, Inc.|Company
+77|Amadeus IT Group, SA|Company
+78|Renesas Electronics Corp|Company
+79|ANSYS, Inc.|Company
+80|HP Inc.|Company
+81|Semiconductor Manufacturing International Corp|Company
+82|CDW Corporation|Company
+83|Wipro Limited|Company
+84|Fair Isaac Corporation|Company
+85|Fujitsu Ltd|Company
+86|Monolithic Power Systems, Inc.|Company
+87|Quanta Computer, Inc.|Company
+88|MongoDB, Inc.|Company
+89|HubSpot, Inc.|Company
+90|Keysight Technologies, Inc.|Company
+91|Canon Inc.|Company
+92|Corning Incorporated|Company
+93|Delta Electronics, Inc.|Company
+94|Cloudflare, Inc.|Company
+95|Splunk Inc.|Company
+96|Advantest Corp|Company
+97|ASM International NV|Company
+98|Fortive Corporation|Company
+99|CGI Inc.|Company
+100|Garmin Ltd.|Company
+101|Panasonic Corp|Company
+102|LONGi Green Energy Technology Co. Ltd|Company
+103|Broadridge Financial Solutions, Inc.|Company
+104|Lasertec Corp|Company
+105|Hewlett Packard Enterprise Company|Company
+106|Telefonaktiebolaget LM Ericsson|Company
+107|Kyocera Corp|Company
+108|United Microelectronics Corporation|Company
+109|Teledyne Technologies Incorporated|Company
+110|VeriSign, Inc.|Company
+111|FLEETCOR Technologies, Inc.|Company
+112|PTC Inc.|Company
+113|NTT Data Corp|Company
+114|Nokia Corporation|Company
+115|Kaspi Bank Joint Stock Company|Company
+116|TDK Corp|Company
+117|First Solar, Inc.|Company
+118|Check Point Software Technologies Ltd.|Company
+119|NetApp, Inc.|Company
+120|ASE Technology Holding Co., Ltd.|Company
+121|Akamai Technologies, Inc.|Company
+122|Beijing Kingsoft Office Software, Inc.|Company
+123|Nomura Research Institute Ltd|Company
+124|Tyler Technologies, Inc.|Company
+125|Nuance Communications, Inc.|Company
+126|Will Semiconductor Co. Ltd|Company
+127|Seagate Technology plc|Company
+128|Skyworks Solutions, Inc.|Company
+129|WiseTech Global Limited|Company
+130|EPAM Systems, Inc.|Company
+131|Enphase Energy, Inc.|Company
+132|Entegris, Inc.|Company
+133|Jabil Inc.|Company
+134|Western Digital Corporation|Company
+135|Super Micro Computer, Inc.|Company
+136|Lenovo Group Ltd|Company
+137|NEC Corp|Company
+138|Teradyne, Inc.|Company
+139|ZTE Corp|Company
+140|Shenzhen Transsion Holdings Co. Ltd|Company
+141|The Sage Group plc|Company
+142|Dynatrace, Inc.|Company
+143|OBIC Co.,Ltd.|Company
+144|Leidos Holdings, Inc.|Company
+145|SS&C Technologies Holdings, Inc.|Company
+146|Logitech International SA|Company
+147|GoDaddy Inc.|Company
+148|NortonLifeLock Inc.|Company
+149|Unity Software Inc.|Company
+150|Bentley Systems, Incorporated|Company
+151|Okta, Inc.|Company
+152|NICE Ltd.|Company
+153|Aspen Technology, Inc.|Company
+154|Affirm Holdings, Inc.|Company
+155|Shanghai Baosight Software Co.,Ltd.|Company
+156|Zebra Technologies Corporation|Company
+157|Citrix Systems, Inc.|Company
+158|AppLovin Corp|Company
+159|LG Electronics, Inc.|Company
+160|UiPath, Inc.|Company
+161|Trimble Inc.|Company
+162|Advanced Micro-Fabrication Equipment, Inc. China|Company
+163|Manhattan Associates, Inc.|Company
+164|Jack Henry & Associates, Inc.|Company
+165|Pure Storage, Inc.|Company
+166|BE Semiconductor Industries N.V.|Company
+167|Hithink RoyalFlush Information Network Co. Ltd|Company
+168|LARGAN Precision Co.,Ltd|Company
+169|Paycom Software, Inc.|Company
+170|ZoomInfo Technologies Inc.|Company
+171|ASUSTeK Computer, Inc.|Company
+172|DocuSign, Inc.|Company
+173|Xero Limited|Company
+174|Nutanix, Inc.|Company
+175|Open Text Corporation|Company
+176|Nexi S.p.A.|Company
+177|MicroStrategy Incorporated|Company
+178|Elastic N.V.|Company
+179|BYD Electronic International Co Ltd|Company
+180|F5 Networks, Inc.|Company
+181|Flex Ltd.|Company
+182|Qorvo, Inc.|Company
+183|Amdocs Limited|Company
+184|Proofpoint, Inc.|Company
+185|Computershare Limited|Company
+186|Advantech Co. Ltd|Company
+187|Oracle Corp Japan|Company
+188|Ceridian HCM Holding Inc.|Company
+189|Wiwynn Corp|Company
+190|Novatek Microelectronics Corp|Company
+191|Dropbox, Inc.|Company
+192|Maxscend Microelectronics Company Ltd|Company
+193|Black Knight, Inc.|Company
+194|Anaplan, Inc.|Company
+195|Juniper Networks, Inc.|Company
+196|Sanan Optoelectronics Co. Ltd|Company
+197|TD Synnex|Company
+198|Globant SA|Company
+199|Zendesk, Inc.|Company
+200|Nemetschek SE|Company
+201|Procore Technologies, Inc.|Company
+202|OMRON Corp|Company
+203|Cree, Inc.|Company
+204|Montage Technology Co. Ltd|Company
+205|Lattice Semiconductor Corporation|Company
+206|Sunny Optical Technology Group Co Ltd|Company
+207|Paylocity Holding Corporation|Company
+208|Lens Technology Co. Ltd|Company
+209|Accton Technology Corp|Company
+210|CyberArk Software Ltd.|Company
+211|Wistron Corp|Company
+212|Avast plc|Company
+213|Lite-On Technology Corp|Company
+214|Guidewire Software, Inc.|Company
+215|Universal Display Corporation|Company
+216|360 Security Technology, Inc.|Company
+217|Trina Solar Co. Ltd|Company
+218|WEX Inc.|Company
+219|Minebea Mitsumi, Inc.|Company
+220|Unimicron Technology Corp|Company
+221|Shimadzu Corp|Company
+222|GlobalWafers Co. Ltd|Company
+223|monday.com Ltd|Company
+224|Switch, Inc.|Company
+225|Alchip Technologies Ltd|Company
+226|Yonyou Network Technology Co. Ltd|Company
+227|SCREEN Holdings Co. Ltd|Company
+228|China Resources Microelectronics Ltd|Company
+229|Avalara, Inc.|Company
+230|Dolby Laboratories, Inc.|Company
+231|GigaDevice Semiconductor|Company
+232|Bill.com Holdings, Inc.|Company
+233|Ubiquiti Inc.|Company
+234|Dawning Information Industry Co. Ltd|Company
+235|Ibiden Co.,Ltd.|Company
+236|Zhejiang Jingsheng Mechanical & Electrical Co. Ltd|Company
+237|Otsuka Corp|Company
+238|Chaozhou Three-Circle|Company
+239|National Instruments Corporation|Company
+240|Nanya Technology Corp|Company
+241|Amkor Technology, Inc.|Company
+242|Realtek Semiconductor Corp|Company
+243|Pegatron Corp|Company
+244|Cambricon Technologies Corp Ltd|Company
+245|Global Unichip Corp|Company
+246|Trend Micro Inc.|Company
+247|Hundsun Technologies, Inc.|Company
+248|ROHM Co. Ltd|Company
+249|E Ink Holdings, Inc.|Company
+250|Wingtech Technology Co.,Ltd|Company
+251|CACI International Inc|Company
+252|JCET Group Co. Ltd|Company
+253|Descartes Systems Group Inc.|Company
+254|The Descartes Systems Group, Inc.|Company
+255|Rambus Inc.|Company
+256|Qualys, Inc.|Company
+257|Onto Innovation Inc.|Company
+258|National Silicon Industry Group Co. Ltd|Company
+259|Cognex Corporation|Company
+260|Wix.com Ltd.|Company
+261|Fabrinet|Company
+262|SPS Commerce, Inc.|Company
+263|Ciena Corporation|Company
+264|MKS Instruments, Inc.|Company
+265|Concentrix Corporation|Company
+266|Temenos AG|Company
+267|Science Applications International Corporation|Company
+268|Mohawk Group Holdings, Inc.|Company
+269|CDK Global, Inc.|Company
+270|Arrow Electronics, Inc.|Company
+271|SCSK Corp|Company
+272|Littelfuse, Inc.|Company
+273|Hamamatsu Photonics K.K.|Company
+274|Altair Engineering Inc.|Company
+275|Coherent, Inc.|Company
+276|SailPoint Technologies Holdings, Inc.|Company
+277|Genpact Limited|Company
+278|New Relic, Inc.|Company
+279|MACOM Technology Solutions Holdings, Inc.|Company
+280|Hangzhou First Applied Material Co. Ltd|Company
+281|Stamps.com Inc.|Company
+282|Smartsheet Inc.|Company
+283|Bechtle AG|Company
+284|Coupa Software Incorporated|Company
+285|Inventec Corp|Company
+286|AppFolio, Inc.|Company
+287|DoubleVerify Holdings, Inc.|Company
+288|Topicus.com, Inc.|Company
+289|Soitec SA|Company
+290|Qualtrics International Inc.|Company
+291|Shift4 Payments, Inc.|Company
+292|Insight Enterprises, Inc.|Company
+293|eMemory Technology, Inc.|Company
+294|Datto Holding Corp.|Company
+295|Hua Hong Semiconductor Ltd|Company
+296|ITOCHU Techno-Solutions Corp|Company
+297|Shengyi Technology Co. Ltd|Company
+298|Allegro MicroSystems, Inc.|Company
+299|Novanta Inc.|Company
+300|KnowBe4, Inc.|Company
+301|GT Advanced Technologies, Inc.|Company
+302|Silergy Corp|Company
+303|Sensata Technologies Holding plc|Company
+304|SG Micro Corp|Company
+305|II-VI Incorporated|Company
+306|Five9, Inc.|Company
+307|Medallia, Inc.|Company
+308|StoneCo Ltd.|Company
+309|BayCurrent Consulting, Inc.|Company
+310|TIS, Inc.|Company
+311|Shinko Electric Industries Co. Ltd|Company
+312|Compal Electronics, Inc.|Company
+313|Lyft, Inc.|Company
+314|Vontier Corporation|Company
+315|Hangzhou Silan Microelectronics Co. Ltd|Company
+316|GMO Payment Gateway, Inc.|Company
+317|Alten SA|Company
+318|Micro-Star International Co. Ltd|Company
+319|Sumco Corp|Company
+320|Giga-Byte Technology Co. Ltd|Company
+321|Dun & Bradstreet Holdings, Inc.|Company
+322|Shanghai Friendess Electronic Technology Corp Ltd|Company
+323|Tenable Holdings, Inc.|Company
+324|Seiko Epson Corp|Company
+325|Nan Ya Printed Circuit Board Corp|Company
+326|Workiva Inc.|Company
+327|Yealink Network Technology Co. Ltd|Company
+328|CMC Materials, Inc.|Company
+329|ExlService Holdings, Inc.|Company
+330|AU Optronics Corp|Company
+331|SolarEdge Technologies, Inc.|Company
+332|KPIT Technologies Ltd|Company
+333|Thunder Software Technology Co.,Ltd.|Company
+334|Spectris plc|Company
+335|McAfee Corp.|Company
+336|TravelSky Technology Ltd|Company
+337|IPG Photonics Corporation|Company
+338|Kingdee International Software Group Co Ltd|Company
+339|Sharp Corp|Company
+340|Reply S.p.A.|Company
+341|Worldline SA|Company
+342|Brooks Automation, Inc.|Company
+343|Suzhou Maxwell Technologies Co. Ltd|Company
+344|Suzhou TFC Optical Communication Co. Ltd|Company
+345|Innolux Corp|Company
+346|Acer, Inc.|Company
+347|NEXTDC Limited|Company
+348|Xinyi Solar Holdings Ltd|Company
+349|Anker Innovations Ltd|Company
+350|Varonis Systems, Inc.|Company
+351|Changsha Jingjia Microelectronics Co. Ltd|Company
+352|Eoptolink Technology, Inc. Ltd|Company
+353|Euronet Worldwide, Inc.|Company
+354|Universal Scientific Industrial|Company
+355|Powerchip Semiconductor Manufacturing Corp|Company
+356|Power Integrations, Inc.|Company
+357|WPG Holdings Ltd|Company
+358|Blackbaud, Inc.|Company
+359|DXC Technology Company|Company
+360|Sopra Steria Group SA|Company
+361|Endava plc|Company
+362|Avnet, Inc.|Company
+363|AIXTRON SE|Company
+364|Chicony Electronics Co. Ltd|Company
+365|Shanghai Aiko Solar Energy Co. Ltd|Company
+366|StarPower Semiconductor Ltd|Company
+367|Synaptics Incorporated|Company
+368|Ingenic Semiconductor Co.,Ltd.|Company
+369|SHIFT, Inc.|Company
+370|Vanguard International Semiconductor Corp|Company
+371|Cirrus Logic, Inc.|Company
+372|China National Software & Service Company Ltd|Company
+373|SimCorp A-S|Company
+374|Teradata Corporation|Company
+375|Shenzhen Goodix Technology Co. Ltd|Company
+376|FireEye, Inc.|Company
+377|ASMedia Technology, Inc.|Company
+378|Asia Vital Components Co. Ltd|Company
+379|Elite Material Co. Ltd|Company
+380|Computacenter plc|Company
+381|Sunrun Inc.|Company
+382|PagSeguro Digital Ltd.|Company
+383|Sangfor Technologies, Inc.|Company
+384|TOTVS SA|Company
+385|Hisense Visual Technology Co. Ltd|Company
+386|Vertex, Inc.|Company
+387|Axcelis Technologies, Inc.|Company
+388|Altium Limited|Company
+389|Hengtong Optic-Electric Co. Ltd|Company
+390|ManTech International Corporation|Company
+391|Winbond Electronics Corp|Company
+392|Hirose Electric Co.,Ltd.|Company
+393|Hyundai Autoever Corp|Company
+394|ASPEED Technology, Inc.|Company
+395|GCL-Poly Energy Holdings Ltd|Company
+396|Silicon Laboratories Inc.|Company
+397|Maxar Technologies Inc.|Company
+398|Asana, Inc.|Company
+399|Pegasystems Inc.|Company
+400|Cornerstone OnDemand, Inc.|Company
+401|nCino, Inc.|Company
+402|Melexis NV|Company
+403|ASM Pacific Technology Ltd|Company
+404|LG Display Co. Ltd|Company
+405|Sino-American Silicon Products, Inc.|Company
+406|NCR Corporation|Company
+407|ALSO Holding AG|Company
+408|Box, Inc.|Company
+409|VisEra Technologies Company Ltd|Company
+410|Lotes Co. Ltd|Company
+411|Qi An Xin Technology Group, Inc.|Company
+412|Zhonghang Electronic Measuring Instruments Co. Ltd|Company
+413|WT Microelectronics Co. Ltd|Company
+414|Tower Semiconductor Ltd.|Company
+415|Softcat plc|Company
+416|Fuzhou Rockchip Electronics Co.,Ltd.|Company
+417|EchoStar Corporation|Company
+418|BlackLine, Inc.|Company
+419|Alteryx, Inc.|Company
+420|Amlogic|Company
+421|Zhen Ding Technology Holding Ltd|Company
+422|INFICON Holding AG|Company
+423|OBIC Business Consultants Co. Ltd|Company
+424|Lumentum Holdings Inc.|Company
+425|Nuvei Corporation|Company
+426|Diodes Incorporated|Company
+427|Viasat, Inc.|Company
+428|Mercell Holding ASA|Company
+429|Celestica Inc.|Company
+430|Caihong Display Devices Co.,Ltd.|Company
+431|Beijing Compass Technology Development Co. Ltd|Company
+432|Rinnai Corp|Company
+433|TianJin 712 Communication & Broadcasting Co. Ltd|Company
+434|Renishaw plc|Company
+435|King Yuan Electronics Co. Ltd|Company
+436|JFrog Ltd.|Company
+437|Tsinghua Tongfang Co. Ltd|Company
+438|Technology One Limited|Company
+439|Riot Blockchain, Inc.|Company
+440|Gold Circuit Electronics Ltd|Company
+441|Taiyo Yuden Co. Ltd|Company
+442|AAC Technologies Holdings, Inc.|Company
+443|Sichuan Changhong Electric Co.,Ltd.|Company
+444|Sprinklr, Inc.|Company
+445|Powertech Technology, Inc.|Company
+446|Commvault Systems, Inc.|Company
+447|Tripod Technology Corp|Company
+448|Itron, Inc.|Company
+449|Jentech Precision Industrial Co. Ltd|Company
+450|Faraday Technology Corp|Company
+451|Phison Electronics Corp|Company
+452|Hangzhou Changchuan Technology Co.,Ltd|Company
+453|Vishay Intertechnology, Inc.|Company
+454|C3.ai, Inc.|Company
+455|ACI Worldwide, Inc.|Company
+456|VeriSilicon Microelectronics|Company
+457|Rapid7, Inc.|Company
+458|Rakus Co. Ltd|Company
+459|HORIBA Ltd|Company
+460|Sprout Social, Inc.|Company
+461|Nihon Unisys Ltd|Company
+462|Chindata Group Holdings Limited|Company
+463|Shanghai Fudan Microelectronics Group Company Ltd|Company
+464|Alarm.com Holdings, Inc.|Company
+465|Camtek Ltd.|Company
+466|Venture Corp Ltd|Company
+467|DigitalOcean Holdings, Inc.|Company
+468|Qisda Corp|Company
+469|Wuhan Jingce Electronic Group Co. Ltd|Company
+470|Ziff Davis, Inc.|Company
+471|Darktrace plc|Company
+472|NS Solutions Corp|Company
+473|J2 Global, Inc.|Company
+474|Siltronic AG|Company
+475|SoftwareONE Holding AG|Company
+476|Jiangsu Goodwe Power Supply Technology Co.,Ltd.|Company
+477|EVO Payments, Inc.|Company
+478|Beijing E-Hualu Information Technology Co. Ltd|Company
+479|Chroma ATE, Inc.|Company
+480|Kinaxis Inc.|Company
+481|Software AG|Company
+482|Shenzhen Sunway Communication Co. Ltd|Company
+483|FormFactor, Inc.|Company
+484|RingCentral, Inc.|Company
+485|Guangdong Hec Technologyholding Co. Ltd|Company
+486|Fangda Carbon New Material Technology Co. Ltd|Company
+487|Kulicke and Soffa Industries, Inc.|Company
+488|Plexus Corp.|Company
+489|Carel Industries S.p.A.|Company
+490|Jiangsu Hoperun Software Co. Ltd|Company
+491|Calix, Inc.|Company
+492|Lightspeed POS Inc.|Company
+493|Sanmina Corporation|Company
+494|AP Memory Technology Corp|Company
+495|Dometic Group AB|Company
+496|Parade Technologies Ltd|Company
+497|Mycronic AB|Company
+498|Vocera Communications, Inc.|Company
+499|Lagercrantz Group AB|Company
+500|TietoEVRY Oyj|Company
+501|Harvard University|University
+502|Massachusetts Institute of Technology|University
+503|Stanford University|University
+504|University of Cambridge|University
+505|California Institute of Technology|University
+506|Princeton University|University
+507|University of Oxford|University
+508|Yale University|University
+509|Columbia University|University
+510|University of California, Berkeley|University
+511|University of Chicago|University
+512|Cornell University|University
+513|University of Pennsylvania|University
+514|University of Tokyo|University
+515|Johns Hopkins University|University
+516|Swiss Federal Institute of Technology in Zurich|University
+517|Kyoto University|University
+518|Weizmann Institute of Science|University
+519|University of California, Los Angeles|University
+520|University of California, San Diego|University
+521|Rockefeller University|University
+522|Hebrew University of Jerusalem|University
+523|New York University|University
+524|University of California, San Francisco|University
+525|University of Wisconsin–Madison|University
+526|University of Illinois at Urbana–Champaign|University
+527|Duke University|University
+528|Imperial College London|University
+529|University of Texas Southwestern Medical Center|University
+530|University of Texas at Austin|University
+531|University College London|University
+532|Osaka University|University
+533|Northwestern University|University
+534|University of Michigan, Ann Arbor|University
+535|University of Toronto|University
+536|University of North Carolina at Chapel Hill|University
+537|Washington University in St. Louis|University
+538|University of Utah|University
+539|University of Washington - Seattle|University
+540|University of California, Santa Barbara|University
+541|McGill University|University
+542|Purdue University, West Lafayette|University
+543|Carnegie Mellon University|University
+544|University of Southern California|University
+545|University of California, Davis|University
+546|University of Colorado Boulder|University
+547|University of California, Irvine|University
+548|University of Paris-Sud|University
+549|University of Minnesota, Twin Cities|University
+550|University of Arizona|University
+551|Technion – Israel Institute of Technology|University
+552|Ohio State University, Columbus|University
+553|University of Rochester|University
+554|École normale supérieure - Paris|University
+555|University of Florida|University
+556|Tel Aviv University|University
+557|Rice University|University
+558|Dartmouth College|University
+559|Vanderbilt University|University
+560|University of Edinburgh|University
+561|École Polytechnique|University
+562|Boston University|University
+563|Pierre-and-Marie-Curie University|University
+564|Pennsylvania State University, University Park|University
+565|University of Geneva|University
+566|Brown University|University
+567|University of British Columbia|University
+568|University of Maryland, College Park|University
+569|Swiss Federal Institute of Technology in Lausanne|University
+570|Karolinska Institute|University
+571|University of Pittsburgh - Pittsburgh Campus|University
+572|Rutgers University-New Brunswick|University
+573|Texas A&M University, College Station|University
+574|Nagoya University|University
+575|Seoul National University|University
+576|University of Manchester|University
+577|Sapienza University of Rome|University
+578|Case Western Reserve University|University
+579|Tohoku University|University
+580|Arizona State University|University
+581|Emory University|University
+582|Ruprecht Karl University of Heidelberg|University
+583|Ludwig Maximilian University of Munich|University
+584|University of Virginia|University
+585|Leiden University|University
+586|Tufts University|University
+587|Georgia Institute of Technology|University
+588|University of Zurich|University
+589|University of Helsinki|University
+590|Technical University of Munich|University
+591|University of Oslo|University
+592|University of Queensland|University
+593|University of Copenhagen|University
+594|University of Sydney|University
+595|Williams College|University
+596|University of Texas MD Anderson Cancer Center|University
+597|University of Nottingham|University
+598|University of Bristol|University
+599|Utrecht University|University
+600|Mines ParisTech|University
+601|Harvard University|University
+602|Stanford University|University
+603|University of Oxford|University
+604|Massachusetts Institute of Technology|University
+605|University of Cambridge|University
+606|Columbia University|University
+607|University of California, Berkeley|University
+608|Princeton University|University
+609|University of Chicago|University
+610|Yale University|University
+611|California Institute of Technology|University
+612|University of Pennsylvania|University
+613|Cornell University|University
+614|University of Tokyo|University
+615|Kyoto University|University
+616|University of California, Los Angeles|University
+617|Johns Hopkins University|University
+618|Swiss Federal Institute of Technology in Zurich|University
+619|New York University|University
+620|University of California, San Diego|University
+621|Hebrew University of Jerusalem|University
+622|University of California, San Francisco|University
+623|University of Wisconsin–Madison|University
+624|University of Illinois at Urbana–Champaign|University
+625|Duke University|University
