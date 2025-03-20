@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import random, time
 from pathlib import Path
 from contextlib import ExitStack
+from tqdm import tqdm
 import numpy as np
 
 from keybert import KeyBERT
@@ -24,7 +25,7 @@ def get_corresponding_author_id(authors):
 
 
 def is_valid_paper(paper):
-    return paper['authors'] and get_corresponding_author_id(paper['authors']) and paper['abstract'] is not None and paper['title'] is not None and paper['year'] is not None and paper['publicationTypes'] is not None and paper["publicationVenue"] is not None and paper["publicationVenue"]["id"] is not None
+    return paper['authors'] and get_corresponding_author_id(paper['authors']) and paper['abstract'] is not None and paper['title'] is not None and paper['year'] is not None and paper['publicationTypes'] is not None and paper["publicationVenue"] is not None and paper["publicationVenue"]["id"] is not None and paper["publicationDate"] is not None
 
 
 def is_valid_conference(paper):
@@ -56,7 +57,7 @@ csv_with_types = {
         "author_paper": ["authorId:START_ID", "paperId:END_ID"],
         "paper_corresponding_author": ["paperId:START_ID", "correspondingAuthorId:END_ID"],
         "paper_confws": ["paperId:START_ID", "confwsEditionId:END_ID"],
-        "paper_journal": ["paperId:START_ID", "journalId:END_ID", "journalVolume:string", "journalPages:string", "year:int"],
+        "paper_journal": ["paperId:START_ID", "journalId:END_ID", "journalVolume:string", "journalPages:string"],
         "keywords": ["sid:ID","keyword:string"],
         "paper_keywords": ["paperId:START_ID", "keyword:END_ID"],
         "confws": ["confwsId:ID", "name:string", "type:string"],
@@ -133,15 +134,13 @@ confws_type = dict()
 with ExitStack() as stack:  # Ensures all files are closed properly
     files = {name: stack.enter_context(open(csv_folder / (name + '.csv'), "w", newline='', encoding="utf-8")) for name in csv_files}
     writers = {name: csv.DictWriter(files[name], fieldnames=fieldnames, delimiter="|") for name, fieldnames in csv_files.items()}
-    recursion_block = 0
 
     # Header has to be removed for tables and changed for relationships! Ask Alfio
     for writer in writers.values():
         writer.writeheader()
 
-    while to_be_processed_papers:
-        recursion_block+=1
-        if recursion_block > MAX_RECURSION:
+    for _ in tqdm(range(MAX_RECURSION)):
+        if not to_be_processed_papers:
             break
 
         processing_papers_id = choose_n_papers_to_process(to_be_processed_papers, BATCH_SIZE)
@@ -224,8 +223,7 @@ with ExitStack() as stack:  # Ensures all files are closed properly
                         "paperId": paperId,
                         "journalId": paper["publicationId"],
                         "journalVolume": paper["journalVolume"],
-                        "journalPages": paper["journalPages"], 
-                        "year": paper["year"],
+                        "journalPages": paper["journalPages"]
                         })
 
                 else:
