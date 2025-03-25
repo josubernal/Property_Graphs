@@ -1,4 +1,5 @@
 .env
+.DS_Store
 rawdata
 csv/*
 !csv/neo4j_import.sh
