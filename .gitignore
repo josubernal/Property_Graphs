@@ -1,7 +1,7 @@
 .env
 .DS_Store
 rawdata
-csv/*
+csv*/*
 !csv/neo4j_import.sh
 !csv/city.csv
 !csv/affiliation.csv
