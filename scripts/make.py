@@ -83,10 +83,9 @@ for key, value in csv_with_types.items():
 
 #********************************************************************************************************************
 RECORDS = 100  # Number of records to save per category 
-BATCH_SIZE = 450
-MAX_RECURSION = 12
+BATCH_SIZE = 480
+MAX_RECURSION = 500
 SEED_VALUE = 42
-QUERY = "semantic data modelling and property graphs"  # Query to filter the papers
 TOPICS = ["semantic data modelling", "machine learning", "data querying", "big data"]
 FIELDS = "paperId,corpusId,title,abstract,authors,url,year,publicationDate,publicationTypes,journal,venue,publicationVenue,references.paperId"  # Fields to retrieve from the API
 #********************************************************************************************************************
